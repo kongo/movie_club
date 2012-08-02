@@ -18,3 +18,8 @@ end
 group :test, :development do
   gem 'rspec-rails'
 end
+
+group :development do
+  gem 'quiet_assets'
+  gem 'thin'
+end
