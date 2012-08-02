@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'devise'
 
 # https://confluence.softserveinc.com
 
