@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
-
 gem 'mysql2'
+gem 'twitter-bootstrap-rails'
+gem 'haml-rails'
 
 # https://confluence.softserveinc.com
 
