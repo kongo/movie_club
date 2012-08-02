@@ -19,4 +19,6 @@
               %li
                 = link_to "Movies", "#"
 
+      - flash.each do |key, value|
+        %div{class: flash_class(key) + " fade in"}= value
       = yield

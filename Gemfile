@@ -6,6 +6,7 @@ gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'devise'
+gem 'simple_form'
 
 # https://confluence.softserveinc.com
 

@@ -1,5 +1,8 @@
 MovieClub::Application.routes.draw do
-  devise_for :users
+  # devise_for :users
+
+  match 'users/sign_in' => 'sessions#new', :via => :get
+  match 'users/sign_in' => 'sessions#create', :via => :post
 
   root :to => "home#index"
   # The priority is based upon order of creation:
