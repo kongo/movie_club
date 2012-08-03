@@ -18,6 +18,12 @@
                 = link_to "Polls", root_path
               %li
                 = link_to "Movies", "#"
+              %li
+                - if user_signed_in?
+                  Hello
+                  = current_user.fullname
+                - else
+                  = link_to "Log In", user_sign_in_path
 
       - flash.each do |key, value|
         %div{class: flash_class(key) + " fade in"}= value

@@ -1,9 +1,12 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
-      t.string :login,              :null => false
-      t.string :fullname,           :null => false
+      t.string :username,           :null => false, :default => ""
+      t.string :fullname,           :null => false, :default => ""
+
+      ## Database authenticatable
       t.string :email,              :null => false, :default => ""
+      t.string :encrypted_password, :null => false, :default => ""
 
       ## Rememberable
       t.datetime :remember_created_at
@@ -14,6 +17,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+
+      ## Token authenticatable
+      t.string :authentication_token
+
 
       t.timestamps
     end

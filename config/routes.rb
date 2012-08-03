@@ -1,6 +1,4 @@
 MovieClub::Application.routes.draw do
-  # devise_for :users
-
   match 'users/sign_in' => 'sessions#new', :via => :get
   match 'users/sign_in' => 'sessions#create', :via => :post
 
