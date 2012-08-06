@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
+gem 'confluence-client'
 
 # https://confluence.softserveinc.com
 

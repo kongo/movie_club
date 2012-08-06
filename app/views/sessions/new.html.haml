@@ -1,4 +1,4 @@
 = simple_form_for User.new, url: url_for(controller: 'sessions', action: 'create'), method: 'post' do |f|
-  = f.input :login
+  = f.input :username
   = f.input :password
   = f.submit 'Log In'

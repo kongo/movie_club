@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if user = User.login(params[:user])
+    if user = UserFinder.find(params[:user][:username], params[:user][:password])
       sign_in user
       redirect_to root_path
     else

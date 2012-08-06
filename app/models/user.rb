@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :password, :password_confirmation
-  # attr_accessible :title, :body
+  attr_accessible :username, :password, :password_confirmation, :fullname, :email
+
+  def self.login(params)
+    return UserFinder.find(params[:username], params[:password])
+  end
 end
