@@ -1,4 +1,13 @@
 %h1 New Poll
 
-= simple_form_for Poll.new do |f|
-  - f.input :title
+= simple_form_for @poll, url: admin_polls_path, html: { class: "well form-horizontal" } do |f|
+  = f.input :title
+  %fieldset
+    %legend
+      Options
+    .control-group
+      = f.simple_fields_for :options do |builder|
+        = builder.input :movie_url, label: "Movie IMDB link"
+        
+
+  = f.submit class: "btn btn-primary"

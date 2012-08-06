@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120806124802) do
+ActiveRecord::Schema.define(:version => 20120806145817) do
 
   create_table "movies", :force => true do |t|
     t.integer  "added_by_id"
-    t.integer  "imdb_id"
+    t.string   "imdb_id",                                         :null => false
     t.string   "title"
     t.string   "director"
     t.integer  "length"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(:version => 20120806124802) do
     t.integer  "imdb_votes_count"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
+  end
+
+  create_table "options", :force => true do |t|
+    t.integer  "poll_id"
+    t.integer  "movie_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "polls", :force => true do |t|
