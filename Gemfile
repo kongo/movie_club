@@ -9,6 +9,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'confluence-client'
 gem 'inherited_resources'
+gem 'imdb'
 
 # https://confluence.softserveinc.com
 
