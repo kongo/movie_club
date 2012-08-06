@@ -8,7 +8,5 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :password, :password_confirmation, :fullname, :email
 
-  def self.login(params)
-    return UserFinder.find(params[:username], params[:password])
-  end
+  alias_attribute :is_admin?, :is_admin
 end

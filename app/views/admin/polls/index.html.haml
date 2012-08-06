@@ -1,0 +1,6 @@
+= link_to "Create Poll", new_admin_poll_path
+
+%h1 Polls
+
+- @polls.each do |p|
+  %h2= p.title

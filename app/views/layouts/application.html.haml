@@ -15,10 +15,10 @@
             = link_to "Movie Club", root_path, class: "brand"
             .nav-collapse
               %ul.nav
-                %li.active
-                  = link_to "Polls", root_path
-                %li
-                  = link_to "Movies", "#"
+                - if user_signed_in?
+                  - if current_user.is_admin?
+                    %li
+                      = link_to "Polls", admin_polls_path
               %ul.nav.pull-right
                 - if user_signed_in?
                   %li
