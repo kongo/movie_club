@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'confluence-client'
+gem 'inherited_resources'
 
 # https://confluence.softserveinc.com
 
