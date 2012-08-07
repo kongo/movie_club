@@ -4,10 +4,10 @@
   = f.input :title
   %fieldset
     %legend
-      Options
+      Movies
     .control-group
-      = f.simple_fields_for :options do |builder|
-        = builder.input :movie_url, label: "Movie IMDB link"
-        
+      - @poll.options.each_with_index do |option, index|
+        = f.simple_fields_for option do |option_form|
+          = option_form.input :movie_url, label: "Movie IMDB link", input_html: { name: "poll[options][#{index}][movie_url]"}
 
   = f.submit class: "btn btn-primary"

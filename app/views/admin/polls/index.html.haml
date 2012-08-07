@@ -1,6 +1,17 @@
-= link_to "Create Poll", new_admin_poll_path
+.row
+  .span4
+    %h1 Polls
+  .span1.offset12
+    = link_to "New Poll", new_admin_poll_path
 
-%h1 Polls
+%hr
 
-- @polls.each do |p|
-  %h2= p.title
+.polls
+  - @polls.each do |p|
+    .poll
+      %h2= p.title
+    %ol
+    - p.options.each do |o|
+      %li
+        = link_to o.movie.title, o.movie.imdb_url, target: "_blank"
+    %hr
