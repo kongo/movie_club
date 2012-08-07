@@ -10,7 +10,7 @@ gem 'simple_form'
 gem 'confluence-client'
 gem 'inherited_resources'
 gem 'imdb'
-gem 'nested-form'
+gem 'backbone-on-rails'
 
 # https://confluence.softserveinc.com
 
