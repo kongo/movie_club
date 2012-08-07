@@ -17,8 +17,15 @@
               %ul.nav
                 - if user_signed_in?
                   - if current_user.is_admin?
-                    %li
-                      = link_to "Polls", admin_polls_path
+                    %li.dropdown
+                      = link_to admin_polls_path, :class => "dropdown-toggle", :"data-toggle" => "dropdown", :"data-target" => "#" do
+                        Polls
+                        %b.caret
+                      %ul.dropdown-menu
+                        %li
+                          = link_to "List", admin_polls_path
+                        %li
+                          = link_to "New", new_admin_poll_path
               %ul.nav.pull-right
                 - if user_signed_in?
                   %li
