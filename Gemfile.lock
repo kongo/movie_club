@@ -68,6 +68,10 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
+    haml_coffee_assets (1.4.0)
+      execjs (>= 1.2.9)
+      sprockets (>= 2.0.3)
+      tilt (>= 1.3.3)
     has_scope (0.5.1)
     hike (1.2.1)
     hpricot (0.8.6)
@@ -183,6 +187,7 @@ DEPENDENCIES
   confluence-client
   devise
   haml-rails
+  haml_coffee_assets
   imdb
   inherited_resources
   jquery-rails

@@ -11,6 +11,7 @@ gem 'confluence-client'
 gem 'inherited_resources'
 gem 'imdb'
 gem 'backbone-on-rails'
+gem 'haml_coffee_assets'
 
 # https://confluence.softserveinc.com
 
