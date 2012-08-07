@@ -1,0 +1,9 @@
+.control-group
+  %label.control-label{ :for => "query" }
+    IMDB link
+  .controls
+    %input#search-query{ :type => "text", :name => "query", :value => "http://akas.imdb.com/title/tt0095016/combined"}
+    %button.btn.query-trigger{ :name => "button", :type => "button" }
+      Add
+
+%ol.selected-movies

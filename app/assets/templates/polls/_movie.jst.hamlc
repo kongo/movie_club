@@ -1,0 +1,6 @@
+%li.movie
+  %a.movie{ :href => @movie.url }
+    = @movie.get("title")
+    = "(#{@movie.get('year')})"
+  %a.close{ :href => "#", :style => "float: inherit" } &times;
+  %input{ :type => "hidden", :name => "poll[options][#{@num}][movie_id]", :value => @movie.get("id") }

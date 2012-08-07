@@ -1,13 +1,50 @@
+:javascript
+  $(function() {
+    $("input.search-query").keypress(function(event) {
+      if (event.which == 13) {
+        event.preventDefault();
+      }
+    });
+
+    /*
+    $("button.query-trigger").click(function() {
+      $.get(
+        "#{movie_finder_search_path}.json",
+        { query: $("#query").val() },
+        function(data) {
+          var template = _.template($("#movie-template").html());
+          var rendered = template({movie: data});
+          console.log(template);
+          console.log(rendered);
+          $(".selected-movies").append(rendered);
+        }
+      );
+    });
+    */
+  });
+
+%script{type: "text/template", id: "movie-template"}
+  <li class="movie">
+  <button class="close">&times;</button>
+  <a href="/movies/<%= movie.id %>"><%= movie.title%> (<%= movie.year%>)</a>
+  </li>
+
 %h1 New Poll
 
-= simple_form_for @poll, url: admin_polls_path, html: { class: "well form-horizontal" } do |f|
+= simple_form_for @poll, url: admin_polls_path, html: { class: "well form-horizontal form-search" } do |f|
   = f.input :title
   %fieldset
     %legend
       Movies
-    .control-group
-      - @poll.options.each_with_index do |option, index|
-        = f.simple_fields_for option do |option_form|
-          = option_form.input :movie_url, label: "Movie IMDB link", input_html: { name: "poll[options][#{index}][movie_url]"}
+    .control-group.jscontainer
+      
+      / .control-group
+      /   %label.control-label{for: "query"}
+      /     IMDB link
+      /   .controls
+      /     = text_field_tag :query, nil, class: "search-query"
+      /     = button_tag "Add", type: "button", class: "btn query-trigger"
+
+      / %ul.selected-movies
 
   = f.submit class: "btn btn-primary"

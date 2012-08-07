@@ -1,6 +1,9 @@
 class MovieFinder
   def self.find_by_url(url)
-    imdb_id = url.match(/(\d+)/)[0]
+    matches = url.match(/(\d+)/)
+    return nil unless matches
+
+    imdb_id = matches[0]
     return nil unless imdb_id
 
     movie = Movie.find_by_imdb_id(imdb_id)

@@ -2,6 +2,8 @@ MovieClub::Application.routes.draw do
   match 'users/sign_in' => 'sessions#new', :via => :get
   match 'users/sign_in' => 'sessions#create', :via => :post
 
+  match 'movie_finder/search' => 'movie_finder#search', :via => :get
+
   devise_for :users
   root :to => "home#index"
 

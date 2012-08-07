@@ -1,6 +1,7 @@
 class MovieClub.Routers.Polls extends Backbone.Router
   routes:
-    "admin/polls": "adminIndex"
+    "admin/polls/new": "adminNew"
 
-  adminIndex: ->
-    alert('caught')
+  adminNew: ->
+    window.view = new MovieClub.Views.PollsIndex
+    $(".control-group.jscontainer").html(window.view.render().el)
