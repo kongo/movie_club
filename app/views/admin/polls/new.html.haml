@@ -5,22 +5,6 @@
         event.preventDefault();
       }
     });
-
-    /*
-    $("button.query-trigger").click(function() {
-      $.get(
-        "#{movie_finder_search_path}.json",
-        { query: $("#query").val() },
-        function(data) {
-          var template = _.template($("#movie-template").html());
-          var rendered = template({movie: data});
-          console.log(template);
-          console.log(rendered);
-          $(".selected-movies").append(rendered);
-        }
-      );
-    });
-    */
   });
 
 %script{type: "text/template", id: "movie-template"}
@@ -33,18 +17,10 @@
 
 = simple_form_for @poll, url: admin_polls_path, html: { class: "well form-horizontal form-search" } do |f|
   = f.input :title
+  = f.input :starts_at
+  = f.input :ends_at
   %fieldset
     %legend
       Movies
     .control-group.jscontainer
-      
-      / .control-group
-      /   %label.control-label{for: "query"}
-      /     IMDB link
-      /   .controls
-      /     = text_field_tag :query, nil, class: "search-query"
-      /     = button_tag "Add", type: "button", class: "btn query-trigger"
-
-      / %ul.selected-movies
-
   = f.submit class: "btn btn-primary"

@@ -3,9 +3,10 @@ class Admin::PollsController < ApplicationController
   before_filter :authorize
 
   def create
-    raise params.inspect
-    movies_urls = params[:poll].delete(:options).map{ |e| e[1][:movie_url] }
+    # raise params.inspect
+    # movies_urls = params[:poll].delete(:options).map{ |e| e[1][:movie_url] }
     @poll = Poll.new(params[:poll])
+    raise @poll.inspect + @poll.options.inspect
     @poll.build_options_from_movies_urls movies_urls
     @poll.save
   end

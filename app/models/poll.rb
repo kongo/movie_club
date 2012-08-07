@@ -1,5 +1,5 @@
 class Poll < ActiveRecord::Base
-  attr_accessible :ends_at, :starts_at, :title
+  attr_accessible :ends_at, :starts_at, :title, :options, :options_attributes
   after_initialize :default_values
   has_many :options
 
@@ -15,11 +15,15 @@ class Poll < ActiveRecord::Base
 
   def default_values
     self.title ||= "Choice for " + Date.commercial(Date.today.year, Date.today.cweek, 4).to_s(:long_ordinal)
+
     unless self.options.count > 0
       1.upto(OPTIONS_COUNT) do |i|
         option = self.options.build
         option.movie = Movie.new
       end
     end
+
+    self.starts_at  ||= Time.zone.now
+    self.ends_at    ||= Date.commercial(Date.today.year, Date.today.cweek, 4) - 1.day
   end
 end
