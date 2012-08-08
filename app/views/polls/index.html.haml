@@ -1,0 +1,11 @@
+%h1 Vote for a movie
+%hr
+
+.polls
+  - @polls.each do |p|
+    .poll
+      %h2= p.title
+      %ol.options
+        - p.options.each do |o|
+          %li= o.movie.title
+    %hr

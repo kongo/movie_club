@@ -5,7 +5,7 @@ MovieClub::Application.routes.draw do
   match 'movie_finder/search' => 'movie_finder#search', :via => :get
 
   devise_for :users
-  root :to => "home#index"
+  root :to => "polls#index"
 
   namespace :admin do
     resources :polls
