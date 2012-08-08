@@ -1,8 +1,6 @@
 .row
   .span4
     %h1 Polls
-  .span1.offset12
-    = link_to "New Poll", new_admin_poll_path
 
 %hr
 
@@ -10,8 +8,11 @@
   - @polls.each do |p|
     .poll
       %h2= p.title
+      = link_to admin_poll_path(p), class: 'close', method: 'delete', confirm: 'Delete this poll?' do
+        &times;
+
     %ol
-    - p.options.each do |o|
-      %li
-        = link_to o.movie.title, o.movie.imdb_url, target: "_blank"
+      - p.options.each do |o|
+        %li
+          = link_to o.movie.title, o.movie.imdb_url, target: "_blank"
     %hr
