@@ -1,12 +1,3 @@
-:javascript
-  $(function() {
-    $("input.search-query").keypress(function(event) {
-      if (event.which == 13) {
-        event.preventDefault();
-      }
-    });
-  });
-
 %script{type: "text/template", id: "movie-template"}
   <li class="movie">
   <button class="close">&times;</button>
