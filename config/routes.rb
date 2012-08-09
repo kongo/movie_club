@@ -8,6 +8,7 @@ MovieClub::Application.routes.draw do
   root :to => "polls#index"
 
   namespace :admin do
+    root :to => "polls#index"
     resources :polls
     resources :movies
   end
