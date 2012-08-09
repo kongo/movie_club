@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120806145817) do
+ActiveRecord::Schema.define(:version => 20120809090604) do
 
   create_table "movies", :force => true do |t|
     t.integer  "added_by_id"
@@ -64,5 +64,15 @@ ActiveRecord::Schema.define(:version => 20120806145817) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "poll_id"
+    t.integer  "option_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["poll_id", "user_id"], :name => "poll_user", :unique => true
 
 end

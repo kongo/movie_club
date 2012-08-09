@@ -3,6 +3,7 @@ class Poll < ActiveRecord::Base
   after_initialize :default_values
 
   has_many :options, :dependent => :destroy
+  has_many :options, :dependent => :destroy
   accepts_nested_attributes_for :options
 
   default_scope ->{ order("ends_at desc") }
