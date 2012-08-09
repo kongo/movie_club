@@ -1,11 +1,12 @@
 %ol.options
   - poll.options.each do |o|
     %li
-      = o.movie.title
-      .pull-right
-        = poll.votes_count(o)
-        \/
-        = poll.votes_percent(o).to_s + "%"
+      = link_to o.movie.title, o.movie.imdb_url, target: "_blank"
+      %br
       %br
       .progress{ class: poll.leading_option?(o) ? 'progress-danger' : '' }
+        .pull-right
+          = poll.votes_count(o)
+          \/
+          = poll.votes_percent(o).to_s + "%"
         .bar{ style: "width: #{poll.votes_percent(o)}%"}

@@ -34,12 +34,14 @@ class Poll < ActiveRecord::Base
     (option ? votes.with_option(option) : votes).count
   end
 
-  def leading_option
-    votes.count(:group => :option).max_by {|k,v| v} [0]
+  def leading_options
+    votes_by_option = votes.count(:group => :option)
+    max_votes = votes_by_option.max_by {|k,v| v} [1]
+    votes_by_option.keys.find_all { |option| votes_by_option[option] == max_votes }
   end
 
   def leading_option?(option)
-    option == leading_option
+    leading_options.include? option
   end
 
   private
