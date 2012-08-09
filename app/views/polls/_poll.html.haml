@@ -1,4 +1,6 @@
 .poll{ class: poll.open? ? "open" : "closed" }
-  %h2= poll.title
+  %h2
+    = poll.title
+    %small="#{poll.votes.count} votes"
   - template_name = poll.closed? || (user_signed_in? && poll.voted_by?(current_user)) ? 'poll_result' : 'poll_form'
   = render partial: template_name, locals: {poll: poll}

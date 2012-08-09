@@ -2,8 +2,8 @@ class Poll < ActiveRecord::Base
   attr_accessible :ends_at, :starts_at, :title, :options, :options_attributes
   after_initialize :default_values
 
-  has_many :options, :dependent => :destroy
-  has_many :options, :dependent => :destroy
+  has_many :options,  :dependent => :destroy
+  has_many :votes,    :dependent => :destroy
   accepts_nested_attributes_for :options
 
   default_scope ->{ order("ends_at desc") }
@@ -20,6 +20,26 @@ class Poll < ActiveRecord::Base
 
   def closed?
     !self.open?
+  end
+
+  def voted_by?(user)
+    votes.where(user_id: user.id).any?
+  end
+
+  def votes_percent(option)
+    (votes.with_option(option).count.to_f / votes.count * 100).round
+  end
+
+  def votes_count(option)
+    (option ? votes.with_option(option) : votes).count
+  end
+
+  def leading_option
+    votes.count(:group => :option).max_by {|k,v| v} [0]
+  end
+
+  def leading_option?(option)
+    option == leading_option
   end
 
   private

@@ -1,3 +1,11 @@
 %ol.options
   - poll.options.each do |o|
-    %li= o.movie.title
+    %li
+      = o.movie.title
+      .pull-right
+        = poll.votes_count(o)
+        \/
+        = poll.votes_percent(o).to_s + "%"
+      %br
+      .progress{ class: poll.leading_option?(o) ? 'progress-danger' : '' }
+        .bar{ style: "width: #{poll.votes_percent(o)}%"}
