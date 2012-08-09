@@ -3,9 +3,5 @@
 
 .polls
   - @polls.each do |p|
-    .poll
-      %h2= p.title
-      %ol.options
-        - p.options.each do |o|
-          %li= o.movie.title
+    = render partial: "poll", locals: {poll: p}
     %hr
