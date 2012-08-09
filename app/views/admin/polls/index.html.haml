@@ -13,8 +13,10 @@
           %span.label.label-success open
         - else
           %span.label.label-default closed
-      = p.ends_at.to_s
-      = Time.zone.now.to_s
+      %small
+        %span.date-hint
+          ends
+          = p.ends_at.to_s(:long_ordinal)
       = link_to admin_poll_path(p), class: 'close', method: 'delete', confirm: 'Delete this poll?' do
         &times;
     %ol
