@@ -27,6 +27,7 @@ class Poll < ActiveRecord::Base
   end
 
   def votes_percent(option)
+    return 0 unless votes.any?
     (votes.with_option(option).count.to_f / votes.count * 100).round
   end
 
@@ -35,6 +36,7 @@ class Poll < ActiveRecord::Base
   end
 
   def leading_options
+    return [] unless votes.any?
     votes_by_option = votes.count(:group => :option)
     max_votes = votes_by_option.max_by {|k,v| v} [1]
     votes_by_option.keys.find_all { |option| votes_by_option[option] == max_votes }
