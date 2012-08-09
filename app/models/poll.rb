@@ -5,6 +5,8 @@ class Poll < ActiveRecord::Base
   has_many :options
   accepts_nested_attributes_for :options
 
+  default_scope ->{ order("ends_at desc") }
+
   def build_options_from_movies_urls(movies_urls)
     movies_urls.each do |url|
       self.options.build({ movie: MovieFinder.find_by_url(url) })

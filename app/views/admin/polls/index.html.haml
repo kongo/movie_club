@@ -15,6 +15,8 @@
           %span.label.label-default closed
       = p.ends_at.to_s
       = Time.zone.now.to_s
+      = link_to admin_poll_path(p), class: 'close', method: 'delete', confirm: 'Delete this poll?' do
+        &times;
     %ol
       - p.options.each do |o|
         %li
