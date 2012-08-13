@@ -1,1 +1,6 @@
 %h3 we'll have a nice form here
+= simple_form_for poll, url: poll_votes_path(poll), method: "POST" do |f|
+  - poll.options.each do |o|
+    = radio_button_tag :"vote[option_id]", o.id, false
+    = label_tag :option_id, o.title
+  = f.submit

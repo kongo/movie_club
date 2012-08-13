@@ -5,4 +5,7 @@ class Option < ActiveRecord::Base
   validates_presence_of :movie
   validates_presence_of :poll
   attr_accessible :movie_id
+  def title
+    movie.title
+  end
 end
