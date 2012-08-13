@@ -1,6 +1,10 @@
-%h3 we'll have a nice form here
-= simple_form_for poll, url: poll_votes_path(poll), method: "POST" do |f|
-  - poll.options.each do |o|
-    = radio_button_tag :"vote[option_id]", o.id, false
-    = label_tag :option_id, o.title
-  = f.submit
+= simple_form_for poll, url: poll_votes_path(poll), method: "POST", html: {class: "well"} do |f|
+  %ul.movies
+    - poll.options.each do |o|
+      %li
+        = label_tag :option_id, o.title, for: "vote_option_#{o.id}" do
+          = radio_button_tag :"vote[option_id]", o.id, false, id: "vote_option_#{o.id}"
+          = link_to o.title, o.movie.imdb_url, target: "_blank"
+          %span.hint
+            = "(#{o.movie.year})"
+  = f.submit "Vote!", class: "btn btn-primary"
