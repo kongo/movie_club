@@ -29,12 +29,13 @@
               %ul.nav.pull-right
                 - if user_signed_in?
                   %li
-                    = link_to "Hello #{current_user.fullname}"
+                    %span.a
+                      = "Hello #{current_user.fullname}"
                   %li
-                    = link_to "Log Out", destroy_user_session_path, :method => "delete"
+                    = link_to "Sign Out", destroy_user_session_path, :method => "delete"
                 - else
                   %li
-                    = link_to "Log In", users_sign_in_path
+                    = link_to "Sign In", users_sign_in_path
 
       - flash.each do |key, value|
         %div{class: flash_class(key) + " fade in"}= value

@@ -1,4 +1,6 @@
-= simple_form_for User.new, url: url_for(controller: 'sessions', action: 'create'), method: 'post' do |f|
+%h2 Please sign in using your SoftServe credentials
+%br
+= simple_form_for User.new, url: url_for(controller: 'sessions', action: 'create'), method: 'post', html: {class: "well"} do |f|
   = f.input :username
   = f.input :password
-  = f.submit 'Log In'
+  = f.submit 'Log In', class: "btn btn-primary"
