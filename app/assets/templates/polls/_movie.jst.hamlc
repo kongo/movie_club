@@ -1,5 +1,5 @@
 %li.movie
-  %a.movie{ :href => @movie.url }
+  %a.movie{ :href => @movie.imdb_url(), :target => "_blank" }
     = @movie.get("title")
     = "(#{@movie.get('year')})"
   %a.close{ :href => "#", :style => "float: inherit" } &times;

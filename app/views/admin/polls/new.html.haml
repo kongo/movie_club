@@ -1,9 +1,3 @@
-%script{type: "text/template", id: "movie-template"}
-  <li class="movie">
-  <button class="close">&times;</button>
-  <a href="/movies/<%= movie.id %>"><%= movie.title%> (<%= movie.year%>)</a>
-  </li>
-
 %h1 New Poll
 
 = simple_form_for @poll, url: admin_polls_path, html: { class: "well form-horizontal form-search" } do |f|

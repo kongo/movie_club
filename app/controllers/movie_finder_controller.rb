@@ -4,7 +4,7 @@ class MovieFinderController < ApplicationController
     movie = MovieFinder.find_by_url params[:query]
     respond_to do |format|
       format.json do
-        render json: movie, only: [:id, :title, :year]
+        render json: movie, only: [:id, :title, :year, :imdb_id]
       end
     end
   end
