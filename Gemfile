@@ -12,6 +12,8 @@ gem 'inherited_resources'
 gem 'imdb'
 gem 'backbone-on-rails'
 gem 'haml_coffee_assets'
+gem 'passenger'
+gem 'rvm', '>= 1.11.3.5'
 
 # https://confluence.softserveinc.com
 
