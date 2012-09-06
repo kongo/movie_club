@@ -11,8 +11,12 @@ select.datetime
     color: #999
     .progress
       .bar
-        background-color: #ccc
+        background-color: #ccc !important
         background-image: -webkit-linear-gradient(top, #eee, #ddd)
+        background-image: -moz-linear-gradient(top, #eee, #ddd)
+        background-image: -o-linear-gradient(top, #eee, #ddd)
+        background-image: -ms-linear-gradient(top, #eee, #ddd)
+        background-image: linear-gradient(top, #eee, #ddd)
     h2
       font-size: 20px
       small
