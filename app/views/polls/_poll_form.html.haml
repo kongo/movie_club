@@ -7,4 +7,7 @@
           = link_to o.title, o.movie.imdb_url, target: "_blank"
           %span.hint
             = "(#{o.movie.year})"
-  = f.submit "Vote!", class: "btn btn-primary"
+    %li.attendance
+      = check_box_tag :"vote[will_attend]"
+      = label_tag :vote_will_attend, 'I will come'
+  = f.submit "Vote!", class: "btn btn-primary", disabled: true
